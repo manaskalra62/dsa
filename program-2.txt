@@ -1,0 +1,59 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include<stdlib.h>
+#define sz 100
+int cq[sz],r=-1,ct=0,f=0;
+int item;
+void insert(item){
+    r=(r+1)%sz;
+    cq[r]=item;
+    ct++;
+}
+
+void deletion(){
+    if(ct==0)
+    printf("No job in printing spool\n");
+    else{
+        printf("%d is Exits print spool\n",cq[f]);
+        f=(f+1)%sz;
+        ct=ct-1;
+    }
+  }
+void display(){
+    int i,j;
+    if(ct==0)
+    printf("No job in printing spool\n");
+    else{
+        printf("Content of the print spool\n");
+        j=f;
+        for(i=1;i<=ct;i++){
+            printf("%d is printing\n",cq[j]);
+            j=(j+1)%sz;
+        }
+        }
+    }
+int main()
+{
+    int item,ch;
+    for(;;){
+    printf ("1:INSERT 2:DELETE 3:DISPLAY\n");
+    scanf ("%d",&ch);
+    switch (ch)
+   {
+    case 1: printf ("Enter the Print job in Spool\n");
+    scanf ("%d",&item);
+    insert (item);
+    break;
+    case 2: deletion( );
+    break;
+    case 3: display ();
+    break;
+    default: exit(0);
+}
+    
+}
+  
+return 0;
+    
+}
+
